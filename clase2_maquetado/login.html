@@ -10,18 +10,24 @@
 </head>
 
 <body>
-    <main>
-        <section class="Login-page">
+    <main class="login-page">
+        <section class="login-card">
 
             <header class="brand-block">
                 <img src="./assets/utnito-logo.svg" alt="UTNito logo" class="brand-logo">
                 <h1>Welcome to UTNito</h1>
-                <p class="subtitle">This login will be completed in the next step</p>
+                <p class="subtitle">Sign in to chat with <strong>UTNito</strong></p>
             </header>
 
-            <section>
-                <p>Step 1 complete: semantic page structure is read.</p>
-            </section>
+            <Form class="login-form" action="./chat.html" method="get" novalidate>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="e.g carlos.gardel">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+
+                <button type="submit">Login</button>
+            </Form>
 
             <footer class="login-footer">
                 <p>UTN Programación III</p>
