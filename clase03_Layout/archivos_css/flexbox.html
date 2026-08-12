@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox · ejemplos · Clase 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="flexbox.css">
+</head>
+<body>
+
+<header class="page-head">
+  <div class="eyebrow">Clase 03 · CSS</div>
+  <h1>Flexbox</h1>
+  <p class="hint">Todos los ejemplos se pueden <b>achicar arrastrando la esquina inferior derecha</b> del
+    container punteado: los items se reacomodan según la regla de ese ejemplo.</p>
+</header>
+
+<main>
+
+  <!-- ── TERMINOLOGÍA ── -->
+  <section>
+    <h2>Terminología</h2>
+    <div class="axis-demo">
+      <div class="axis-label-main">Main axis →</div>
+      <div class="axis-label-cross">Cross axis ↓</div>
+      <div class="box axis-box">
+        <div class="item">Item</div>
+        <div class="item">Item</div>
+        <div class="item">Item</div>
+      </div>
+      <div class="sub">Borde punteado = flex container · bloques = flex items (solo hijos directos)</div>
+    </div>
+  </section>
+
+  <!-- ── FLEX-DIRECTION ── -->
+  <section>
+    <h2>flex-direction</h2>
+    <div class="demos two">
+      <div class="demo">
+        <h3>row <span class="tag">default</span></h3>
+        <div class="sub">Izquierda a derecha</div>
+        <div class="box d-row"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+      <div class="demo">
+        <h3>row-reverse</h3>
+        <div class="sub">Derecha a izquierda</div>
+        <div class="box d-row-reverse"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+      <div class="demo">
+        <h3>column</h3>
+        <div class="sub">Arriba a abajo</div>
+        <div class="box d-column"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+      <div class="demo">
+        <h3>column-reverse</h3>
+        <div class="sub">Abajo a arriba</div>
+        <div class="box d-column-reverse"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLEX-WRAP ── -->
+  <section>
+    <h2>flex-wrap</h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>nowrap <span class="tag">default</span></h3>
+        <div class="sub">Seis items de 160px en una sola línea: se comprimen</div>
+        <div class="box d-nowrap">
+          <div class="item">160px</div><div class="item">160px</div><div class="item">160px</div>
+          <div class="item">160px</div><div class="item">160px</div><div class="item">160px</div>
+        </div>
+      </div>
+      <div class="demo">
+        <h3>nowrap + flex-shrink: 0</h3>
+        <div class="sub">Si no pueden encogerse, no entran: el container queda desbordado y aparece scroll</div>
+        <div class="box d-overflow">
+          <div class="item">160px</div><div class="item">160px</div><div class="item">160px</div>
+          <div class="item">160px</div><div class="item">160px</div><div class="item">160px</div>
+        </div>
+      </div>
+      <div class="demo">
+        <h3>wrap</h3>
+        <div class="sub">Los que no entran bajan a la línea siguiente</div>
+        <div class="box d-wrap">
+          <div class="item">160px</div><div class="item">160px</div><div class="item">160px</div>
+          <div class="item">160px</div><div class="item">160px</div><div class="item">160px</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── JUSTIFY-CONTENT ── -->
+  <section>
+    <h2>justify-content <span class="axis-hint">main axis</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>flex-start <span class="tag">default</span></h3>
+        <div class="sub">Items al inicio</div>
+        <div class="box d-jc-start"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+      <div class="demo">
+        <h3>flex-end</h3>
+        <div class="sub">Items al final</div>
+        <div class="box d-jc-end"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+      <div class="demo">
+        <h3>center</h3>
+        <div class="sub">Items centrados</div>
+        <div class="box d-jc-center"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+      <div class="demo">
+        <h3>space-between</h3>
+        <div class="sub">Máximo espacio entre items, nada en los extremos</div>
+        <div class="box d-jc-between"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+      <div class="demo">
+        <h3>space-around</h3>
+        <div class="sub">Espacio uniforme, mitad en los extremos</div>
+        <div class="box d-jc-around"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+      <div class="demo">
+        <h3>space-evenly</h3>
+        <div class="sub">Espacio completamente uniforme, extremos incluidos</div>
+        <div class="box d-jc-evenly"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ALIGN-ITEMS ── -->
+  <section>
+    <h2>align-items <span class="axis-hint">cross axis</span></h2>
+    <div class="demos two">
+      <div class="demo">
+        <h3>stretch <span class="tag">default</span></h3>
+        <div class="sub">Los estira a igual altura</div>
+        <div class="box tall d-ai-stretch">
+          <div class="item">Corto</div><div class="item">Un texto más largo que los otros</div><div class="item">Medio</div>
+        </div>
+      </div>
+      <div class="demo">
+        <h3>flex-start</h3>
+        <div class="sub">Items al tope, con su altura natural</div>
+        <div class="box tall d-ai-start">
+          <div class="item">Corto</div><div class="item">Un texto más largo que los otros</div><div class="item">Medio</div>
+        </div>
+      </div>
+      <div class="demo">
+        <h3>flex-end</h3>
+        <div class="sub">Items al fondo</div>
+        <div class="box tall d-ai-end">
+          <div class="item">Corto</div><div class="item">Un texto más largo que los otros</div><div class="item">Medio</div>
+        </div>
+      </div>
+      <div class="demo">
+        <h3>center</h3>
+        <div class="sub">Items centrados verticalmente</div>
+        <div class="box tall d-ai-center">
+          <div class="item">Corto</div><div class="item">Un texto más largo que los otros</div><div class="item">Medio</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CENTRADO ── -->
+  <section>
+    <h2>Centrado perfecto</h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>justify-content: center + align-items: center</h3>
+        <div class="sub">Centrado en los dos ejes</div>
+        <div class="box tall centrado"><div class="item item-lg">Centrado</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLEX-GROW ── -->
+  <section>
+    <h2>flex-grow <span class="axis-hint">en el item</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>grow: 0 <span class="tag">default</span></h3>
+        <div class="sub">Ninguno crece: queda espacio libre a la derecha</div>
+        <div class="box d-grow-0"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+      <div class="demo">
+        <h3>grow: 1 en los tres</h3>
+        <div class="sub">Se reparten el sobrante en partes iguales</div>
+        <div class="box d-grow-1"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+      <div class="demo">
+        <h3>grow: 0 / 1 / 2</h3>
+        <div class="sub">C se queda con el doble del sobrante que B; A no crece</div>
+        <div class="box d-grow-mix"><div class="item g0">grow: 0</div><div class="item g1">grow: 1</div><div class="item g2">grow: 2</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLEX-SHRINK ── -->
+  <section>
+    <h2>flex-shrink <span class="axis-hint">en el item</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>shrink: 1 <span class="tag">default</span></h3>
+        <div class="sub">Tres items de 240px que no entran: los tres ceden por igual</div>
+        <div class="box d-shrink-1"><div class="item">240px</div><div class="item">240px</div><div class="item">240px</div></div>
+      </div>
+      <div class="demo">
+        <h3>shrink: 0 en el tercero</h3>
+        <div class="sub">Ceden los dos primeros; el tercero se mantiene en 240px</div>
+        <div class="box d-shrink-0"><div class="item">240px</div><div class="item">240px</div><div class="item s0">240px fijo</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLEX-BASIS ── -->
+  <section>
+    <h2>flex-basis <span class="axis-hint">en el item</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>basis: auto <span class="tag">default</span></h3>
+        <div class="sub">El tamaño base lo da el contenido</div>
+        <div class="box d-basis-auto"><div class="item">Corto</div><div class="item">Un contenido bastante más largo</div><div class="item">Medio texto</div></div>
+      </div>
+      <div class="demo">
+        <h3>basis: 200px</h3>
+        <div class="sub">Todos parten de 200px sin importar el contenido</div>
+        <div class="box d-basis-200"><div class="item">Corto</div><div class="item">Un contenido bastante más largo</div><div class="item">Medio texto</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLEX (SHORTHAND) ── -->
+  <section>
+    <h2>flex <span class="axis-hint">grow · shrink · basis</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>flex: 0 0 200px + flex: 1</h3>
+        <div class="sub">Tamaño fijo para el sidebar, el resto para el contenido</div>
+        <div class="box d-shorthand"><div class="item sidebar">flex: 0 0 200px</div><div class="item main">flex: 1</div></div>
+      </div>
+      <div class="demo">
+        <h3>flex: 1 1 280px + wrap</h3>
+        <div class="sub">Base 280px pero flexible: grilla responsive sin media queries</div>
+        <div class="box d-cards">
+          <div class="item">Card</div><div class="item">Card</div><div class="item">Card</div>
+          <div class="item">Card</div><div class="item">Card</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ALIGN-SELF ── -->
+  <section>
+    <h2>align-self <span class="axis-hint">en el item</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>align-self: flex-end</h3>
+        <div class="sub">El container alinea al centro; un item se sale de esa regla</div>
+        <div class="box tall d-self">
+          <div class="item">center</div><div class="item">center</div>
+          <div class="item especial">align-self: flex-end</div>
+          <div class="item">center</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-foot">UTN.BA · Programación III · Clase 03 — CSS: Flexbox</footer>
+
+</body>
+</html>

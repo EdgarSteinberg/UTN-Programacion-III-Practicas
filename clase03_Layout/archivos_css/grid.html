@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid · ejemplos · Clase 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="grid.css">
+</head>
+<body>
+
+<header class="page-head">
+  <div class="eyebrow">Clase 03 · CSS</div>
+  <h1>CSS Grid</h1>
+  <p class="hint">Todos los ejemplos se pueden <b>achicar arrastrando la esquina inferior derecha</b> del
+    container punteado: las columnas y las celdas se recalculan según la regla de ese ejemplo.</p>
+</header>
+
+<main>
+
+  <!-- ── DEFINICIÓN BÁSICA ── -->
+  <section>
+    <h2>Definición básica <span class="axis-hint">bidimensional: filas y columnas a la vez</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>grid-template-columns: 200px 1fr 2fr</h3>
+        <div class="sub">Tres columnas declaradas; las filas se crean solas a medida que hay items</div>
+        <div class="box g-basico">
+          <div class="item">200px</div><div class="item">1fr</div><div class="item">2fr</div>
+          <div class="item">200px</div><div class="item">1fr</div><div class="item">2fr</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LA UNIDAD FR ── -->
+  <section>
+    <h2>La unidad <span class="mono">fr</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>1fr 1fr 1fr</h3>
+        <div class="sub">Tres columnas iguales</div>
+        <div class="box g-fr-111"><div class="item">1fr</div><div class="item">1fr</div><div class="item">1fr</div></div>
+      </div>
+      <div class="demo">
+        <h3>1fr 2fr</h3>
+        <div class="sub">La segunda columna ocupa el doble que la primera</div>
+        <div class="box g-fr-12"><div class="item">1fr</div><div class="item">2fr</div></div>
+      </div>
+      <div class="demo">
+        <h3>200px 1fr 2fr</h3>
+        <div class="sub">El <span class="mono">fr</span> reparte lo que queda <em>después</em> de los tamaños fijos</div>
+        <div class="box g-fr-mix"><div class="item">200px</div><div class="item">1fr</div><div class="item">2fr</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REPEAT ── -->
+  <section>
+    <h2>repeat()</h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>repeat(3, 1fr)</h3>
+        <div class="sub">Equivale a <span class="mono">1fr 1fr 1fr</span></div>
+        <div class="box g-rep-3"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div>
+      </div>
+      <div class="demo">
+        <h3>repeat(4, 200px)</h3>
+        <div class="sub">Cuatro columnas de 200px: el ancho no depende del container, así que puede desbordarlo</div>
+        <div class="box g-rep-4"><div class="item">200px</div><div class="item">200px</div><div class="item">200px</div><div class="item">200px</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AUTO-FILL + MINMAX ── -->
+  <section>
+    <h2>auto-fill + minmax() <span class="axis-hint">el patrón responsive</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>repeat(auto-fill, minmax(250px, 1fr))</h3>
+        <div class="sub">Entran tantas columnas de 250px como quepan; el sobrante se reparte entre ellas.
+          Achicá el container y mirá cómo pasa de 2 columnas a 1</div>
+        <div class="box g-autofill">
+          <div class="item">Card</div><div class="item">Card</div><div class="item">Card</div>
+          <div class="item">Card</div><div class="item">Card</div><div class="item">Card</div>
+        </div>
+      </div>
+      <div class="demo">
+        <h3>el mismo CSS en un container de 320px</h3>
+        <div class="sub">Una columna, sin una sola media query</div>
+        <div class="box g-autofill w320">
+          <div class="item">Card</div><div class="item">Card</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GRID AREAS ── -->
+  <section>
+    <h2>grid-template-areas <span class="axis-hint">layout de página</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>"header header" / "sidebar main" / "footer footer"</h3>
+        <div class="sub">El CSS dibuja el layout; el HTML queda limpio y semántico</div>
+        <div class="box g-layout">
+          <div class="item area-header">header</div>
+          <div class="item area-sidebar">sidebar</div>
+          <div class="item area-main">main</div>
+          <div class="item area-footer">footer</div>
+        </div>
+      </div>
+      <div class="demo">
+        <h3>La misma grilla en mobile</h3>
+        <div class="sub">Solo se redefine <span class="mono">grid-template-areas</span>: mismo HTML, otro layout</div>
+        <div class="box g-layout g-layout-mobile">
+          <div class="item area-header">header</div>
+          <div class="item area-sidebar">sidebar</div>
+          <div class="item area-main">main</div>
+          <div class="item area-footer">footer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── JUSTIFY-ITEMS ── -->
+  <section>
+    <h2>justify-items <span class="axis-hint">horizontal, dentro de cada celda</span></h2>
+    <div class="demos two">
+      <div class="demo">
+        <h3>stretch <span class="tag">default</span></h3>
+        <div class="sub">El item ocupa todo el ancho de su celda</div>
+        <div class="box g-ji-stretch"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+      <div class="demo">
+        <h3>start</h3>
+        <div class="sub">Al inicio de la celda, con el ancho de su contenido</div>
+        <div class="box g-ji-start"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+      <div class="demo">
+        <h3>center</h3>
+        <div class="sub">Centrado en su celda</div>
+        <div class="box g-ji-center"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+      <div class="demo">
+        <h3>end</h3>
+        <div class="sub">Al final de la celda</div>
+        <div class="box g-ji-end"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ALIGN-ITEMS ── -->
+  <section>
+    <h2>align-items <span class="axis-hint">vertical, dentro de cada celda</span></h2>
+    <div class="demos two">
+      <div class="demo">
+        <h3>stretch <span class="tag">default</span></h3>
+        <div class="sub">El item ocupa todo el alto de su celda</div>
+        <div class="box g-ai-stretch"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+      <div class="demo">
+        <h3>start</h3>
+        <div class="sub">Al tope de la celda</div>
+        <div class="box g-ai-start"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+      <div class="demo">
+        <h3>center</h3>
+        <div class="sub">Centrado vertical en su celda</div>
+        <div class="box g-ai-center"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+      <div class="demo">
+        <h3>end</h3>
+        <div class="sub">Al fondo de la celda</div>
+        <div class="box g-ai-end"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── JUSTIFY-SELF / ALIGN-SELF / PLACE-SELF ── -->
+  <section>
+    <h2>justify-self · align-self · place-self <span class="axis-hint">override en un item</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>place-self: center end</h3>
+        <div class="sub">El container estira a todos; un item se sale de esa regla (<span class="mono">place-self</span> = align + justify)</div>
+        <div class="box g-self">
+          <div class="item">stretch</div>
+          <div class="item especial">place-self: center end</div>
+          <div class="item">stretch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GAP ── -->
+  <section>
+    <h2>gap <span class="axis-hint">también funciona en Flexbox</span></h2>
+    <div class="demos one">
+      <div class="demo">
+        <h3>sin gap</h3>
+        <div class="sub">Las celdas quedan pegadas</div>
+        <div class="box g-gap-0">
+          <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+          <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+        </div>
+      </div>
+      <div class="demo">
+        <h3>gap: 16px</h3>
+        <div class="sub">Mismo espacio entre filas y entre columnas</div>
+        <div class="box g-gap-16">
+          <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+          <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+        </div>
+      </div>
+      <div class="demo">
+        <h3>gap: 40px 8px</h3>
+        <div class="sub">Primero filas, después columnas — equivale a <span class="mono">row-gap: 40px; column-gap: 8px</span></div>
+        <div class="box g-gap-mix">
+          <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+          <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-foot">UTN.BA · Programación III · Clase 03 — CSS: Grid</footer>
+
+</body>
+</html>

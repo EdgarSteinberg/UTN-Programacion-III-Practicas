@@ -1,0 +1,254 @@
+/* ═══════════════════════════════════════════════════════════
+   Flexbox · ejemplos — Clase 03
+   navy #304269 · charcoal #353744 · muted #556271
+   Pensado para una pantalla de hasta 700px de ancho.
+   ═══════════════════════════════════════════════════════════ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: #f7f7f7;
+  color: #353744;
+  line-height: 1.45;
+  overflow-x: hidden;
+}
+
+/* ── PÁGINA ──────────────────────────────────────────────── */
+
+.page-head { max-width: 700px; margin: 0 auto; padding: 36px 20px 4px; }
+main       { max-width: 700px; margin: 0 auto; padding: 0 20px; }
+
+.eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #304269;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hint {
+  font-size: 13px;
+  color: #556271;
+  margin-top: 8px;
+}
+.hint b { color: #304269; font-weight: 600; }
+
+section {
+  padding: 28px 0;
+  border-bottom: 1px solid #e3e7ec;
+}
+section:last-child { border-bottom: none; }
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 18px;
+}
+
+.axis-hint {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #556271;
+  letter-spacing: 0;
+  margin: 2px 0 0;
+}
+
+h3 {
+  font-family: 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #304269;
+  margin-bottom: 2px;
+}
+
+.sub { font-size: 13px; color: #556271; margin-bottom: 8px; }
+
+.tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  color: #556271;
+  background: #eef1f6;
+  border-radius: 20px;
+  padding: 2px 8px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.page-foot {
+  font-family: 'Poppins', sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 11px;
+  color: #556271;
+  border-top: 1px solid #e3e7ec;
+}
+
+/* ── GRILLA DE EJEMPLOS ──────────────────────────────────── */
+
+/* minmax(0, 1fr) + min-width: 0 → el ejemplo nunca puede estirar la
+   columna más allá del ancho de la página, aunque su contenido no entre. */
+.demos     { display: grid; gap: 20px; }
+.demos.one { grid-template-columns: minmax(0, 1fr); }
+.demos.two { grid-template-columns: minmax(0, 1fr); }
+.demo      { min-width: 0; }
+
+/* ── CONTAINER E ITEMS DE LOS EJEMPLOS ───────────────────── */
+
+/* resize: horizontal → se puede arrastrar la esquina para achicar
+   el container y ver cómo reaccionan los items del ejemplo. */
+.box {
+  display: flex;
+  gap: 10px;
+  background: #fff;
+  border: 2px dashed #a9b3c1;
+  border-radius: 12px;
+  padding: 14px;
+  resize: horizontal;
+  overflow: auto;          /* lo que no entra scrollea, no ensancha el container */
+  width: 100%;
+  min-width: 150px;
+  max-width: 100%;
+}
+.box.tall { min-height: 170px; }
+
+.item {
+  font-family: 'Poppins', sans-serif;
+  background: #304269;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  min-width: 0;                /* deja que el item se encoja de verdad */
+  overflow: hidden;
+}
+.item-lg { padding: 18px 22px; }
+
+/* ── TERMINOLOGÍA ────────────────────────────────────────── */
+
+.axis-demo { position: relative; padding-right: 74px; }
+.axis-label-main,
+.axis-label-cross {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #304269;
+}
+.axis-label-main { margin-bottom: 6px; }
+.axis-label-cross {
+  position: absolute;
+  right: 18px;
+  top: 45%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  color: #556271;
+}
+.axis-box { padding: 22px; gap: 12px; }
+.axis-demo .sub { margin: 8px 0 0; }
+
+/* ── FLEX-DIRECTION ──────────────────────────────────────── */
+
+.d-row            { flex-direction: row; }
+.d-row-reverse    { flex-direction: row-reverse; }
+.d-column         { flex-direction: column; }
+.d-column-reverse { flex-direction: column-reverse; }
+
+/* ── FLEX-WRAP ───────────────────────────────────────────── */
+
+.d-nowrap .item, .d-wrap .item, .d-overflow .item { width: 160px; }
+.d-nowrap   { flex-wrap: nowrap; }
+.d-wrap     { flex-wrap: wrap; }
+.d-overflow { flex-wrap: nowrap; }
+.d-overflow .item { flex-shrink: 0; }
+
+/* ── JUSTIFY-CONTENT ─────────────────────────────────────── */
+
+.d-jc-start   { justify-content: flex-start; }
+.d-jc-end     { justify-content: flex-end; }
+.d-jc-center  { justify-content: center; }
+.d-jc-between { justify-content: space-between; gap: 0; }
+.d-jc-around  { justify-content: space-around;  gap: 0; }
+.d-jc-evenly  { justify-content: space-evenly;  gap: 0; }
+
+[class*="d-jc-"] .item { min-width: 56px; flex-shrink: 0; }
+
+/* ── ALIGN-ITEMS ─────────────────────────────────────────── */
+
+.d-ai-stretch { align-items: stretch; }
+.d-ai-start   { align-items: flex-start; }
+.d-ai-end     { align-items: flex-end; }
+.d-ai-center  { align-items: center; }
+
+[class*="d-ai-"] .item { max-width: 150px; }
+
+/* ── CENTRADO PERFECTO ───────────────────────────────────── */
+
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── FLEX-GROW ───────────────────────────────────────────── */
+
+.d-grow-1 .item { flex-grow: 1; }
+.d-grow-mix .g0 { flex-grow: 0; }
+.d-grow-mix .g1 { flex-grow: 1; }
+.d-grow-mix .g2 { flex-grow: 2; }
+
+/* ── FLEX-SHRINK ─────────────────────────────────────────── */
+
+.d-shrink-1 .item, .d-shrink-0 .item { width: 240px; }
+.d-shrink-0 .s0 { flex-shrink: 0; background: #353744; }
+
+/* ── FLEX-BASIS ──────────────────────────────────────────── */
+
+.d-basis-auto .item { flex-basis: auto; }
+.d-basis-200  .item { flex-basis: 200px; }
+
+/* ── FLEX (SHORTHAND) ────────────────────────────────────── */
+
+.d-shorthand .sidebar { flex: 0 0 200px; background: #353744; }
+.d-shorthand .main    { flex: 1; }
+
+.d-cards { flex-wrap: wrap; }
+.d-cards .item { flex: 1 1 280px; }
+
+/* ── ALIGN-SELF ──────────────────────────────────────────── */
+
+.d-self { align-items: center; }
+.d-self .especial { align-self: flex-end; background: #353744; }
+
+/* ── PANTALLAS ANGOSTAS ──────────────────────────────────── */
+
+@media (max-width: 460px) {
+  h1 { font-size: 30px; }
+  h2 { font-size: 21px; }
+  .axis-demo { padding-right: 0; }
+  .axis-label-cross {
+    position: static;
+    transform: none;
+    writing-mode: horizontal-tb;
+    display: block;
+    margin-top: 6px;
+  }
+}

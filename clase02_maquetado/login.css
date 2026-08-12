@@ -118,3 +118,7 @@ p {
     color: #faf9fa;
     font-weight: 700;
 }
+
+.login{
+    align-items: stretch;
+}
