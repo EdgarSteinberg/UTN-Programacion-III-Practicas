@@ -70,6 +70,10 @@ body {
     color: #ebebee;
 }
 
+.login-form input::placeholder {
+    color: #a7adb7;
+}
+
 .login-form button {
     margin-top: 14px;
     width: 100%;
@@ -88,23 +92,39 @@ body {
 
 }
 
-.login-footer ,.login-help{
+.secondary-btn {
+    margin-top: 10px;
+    background-color: #31343d;
+}
+
+.secondary-btn:hover {
+    background-color: #31343d;
+}
+
+
+.login-help-link {
+    margin: 12px 0 0 0;
+    text-align: center;
+}
+
+.login-help-link a {
+    color: #e7a6b0;
+    text-decoration: none;
+}
+
+.login-help-link a:hover {
+    color: #f1c1c8;
+}
+
+.login-footer {
     margin-top: 16px;
     text-align: center;
-    color: #e9ebee;
+    color: #a7adb7;
     font-size: 14px;
 }
 
-.program-name{
+.program-name {
     margin: 0 0 4px 0;
-    color: #faf9fa;
+    color: #e7a6b0;
     font-weight: 700;
-}
-
-.login{
-    align-items: stretch;
-}
-
-.login-help-link{
-    text-align: center;
 }
