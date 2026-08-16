@@ -1,28 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Step 4 - Async Mock Demo</title>
-    <link rel="stylesheet" href="./demo.css">
+    <link rel="stylesheet" href="./demo.css" />
     <script src="./demo.js" defer></script>
-</head>
-
-<body>
+  </head>
+  <body>
     <main class="demo-shell">
-        <h1>Step 4 - Sync vs Async demo </h1>
+      <h1>Step 4 - Sync vs Async demo</h1>
 
-        <form id="message-form" class="demo-form">
-            <input type="text" id="message-input" placeholder="Write a message...">
-            <button id="send-sync-btn" type="button">Send (Sync)</button>
-            <button id="send-async-btn" type="submit">Send (ASync)</button>
-            <button id="clear-btn" type="button">Send (Sync)</button>
+      <form id="message-form" class="demo-form">
+        <input id="message-input" type="text" placeholder="Write a message..." />
+        <button id="send-sync-btn" type="button">Send (Sync)</button>
+        <button id="send-async-btn" type="submit">Send (Async)</button>
+        <button id="clear-btn" type="button">Clear</button>
+      </form>
 
-        </form>
-
-        <section id="messages" class="messages"></section>
+      <section id="messages" class="messages"></section>
     </main>
-</body>
-
+  </body>
 </html>

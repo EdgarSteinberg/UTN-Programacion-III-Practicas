@@ -27,13 +27,13 @@ body {
 #message-input {
     flex: 1;
     padding: 10px;
-    border: 1px solid #474d61;
+    border: 1px solid #34373f;
     border-radius: 8px;
     background-color: #2f3340;
     color: white;
 }
 
-.demo-form-button {
+.demo-form button {
     border: none;
     border-radius: 8px;
     background-color: #cf5f6f;
