@@ -4,7 +4,7 @@
 
 :root {
   --left-panel-width: 280px;
-  --left-panel-background-color: #252a35;
+  --left-panel-background-color: #1f2228;
 }
 
 body {
@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #1f2024;
+  background-color: #29292f;
   color: #ececf1;
   font-family: sans-serif;
 }
@@ -22,12 +22,12 @@ body {
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
-  border-bottom: 1px solid #343a4b;
+  border-bottom: 1px solid #24272e;
   background-color:var(--left-panel-background-color);
 }
 
-#panel-width {
-  width: 240px;
+#panel-width, #red , #green, #blue{
+  width: 300px;
 }
 
 #panel-width-value {
