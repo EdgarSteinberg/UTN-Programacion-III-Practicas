@@ -102,3 +102,20 @@ n8n / Integraciones / IA
 Este repositorio se irá actualizando durante la cursada con nuevas clases, prácticas y proyectos.
 
 El objetivo final no es solamente tener el código terminado, sino poder **entender cómo se construyó cada parte y conservar un registro del aprendizaje**.
+
+
+
+## Instalación y creación de un proyecto Angular
+
+### 1. Instalar Angular CLI
+
+Instalar Angular CLI de forma global:
+
+```bash
+npm install -g @angular/cli
+
+2. Crear un nuevo proyecto
+
+Crear un nuevo proyecto Angular:
+
+ng new nombre-del-proyecto
