@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 /* import { RouterOutlet } from '@angular/router'; */
-import { LoginComponent } from './loginComponet/login';
 import { AppComponent } from './appComponent';
+import { LoginComponent } from './loginComponent/login';
+import { ChatComponent } from './chatComponent/chat';
 
-@Component({
+@NgModule({
   selector: 'app-root',
-  imports: [/* RouterOutlet */  AppComponent, LoginComponent],
+  imports: [ AppComponent, LoginComponent, ChatComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
