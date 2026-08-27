@@ -4,7 +4,7 @@ import { AppComponent } from './appComponent';
 import { LoginComponent } from './loginComponent/login';
 import { ChatComponent } from './chatComponent/chat';
 
-@NgModule({
+@Component({
   selector: 'app-root',
   imports: [ AppComponent, LoginComponent, ChatComponent],
   templateUrl: './app.html',
