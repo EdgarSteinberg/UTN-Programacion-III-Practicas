@@ -93,7 +93,7 @@ recibirMensaje(mensaje: string) {
 ```
 
 
-Comunicación Padre → Hijo con @Input()
+## Comunicación Padre → Hijo con @Input()
 Paso 1 — Crear la variable en el padre
 
 Creamos una variable que contendrá el mensaje que queremos enviar:
