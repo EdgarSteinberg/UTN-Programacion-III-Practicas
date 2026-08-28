@@ -92,66 +92,101 @@ recibirMensaje(mensaje: string) {
 <p>Mensaje recibido: {{ mensajeRecibido }}</p>
 ```
 
+# Comunicación Padre → Hijo con `@Input()`
 
-## Comunicación Padre → Hijo con @Input()
-Paso 1 — Crear la variable en el padre
+## Paso 1 — Crear la variable en el padre
 
 Creamos una variable que contendrá el mensaje que queremos enviar:
 
+```ts
 mensajeInput = '';
 mensajeDesdeElPadre = '';
+```
 
-mensajeInput almacena lo que escribimos en el input y mensajeDesdeElPadre almacena el mensaje que finalmente enviaremos.
+`mensajeInput` almacena lo que escribimos en el input y `mensajeDesdeElPadre` almacena el mensaje que finalmente enviaremos.
 
-Paso 2 — Vincular el input con la variable
+---
+
+## Paso 2 — Vincular el input con la variable
 
 En el HTML del padre:
 
+```html
 <input type="text" [(ngModel)]="mensajeInput">
+```
 
-[(ngModel)] permite que lo que escribimos en el input se almacene en mensajeInput.
+`[(ngModel)]` permite que lo que escribimos en el input se almacene en `mensajeInput`.
 
-Paso 3 — Crear el método para enviar el mensaje
+---
+
+## Paso 3 — Crear el método para enviar el mensaje
+
+```ts
 enviarMensaje() {
   this.mensajeDesdeElPadre = this.mensajeInput;
 }
+```
 
-Al ejecutar el método, copiamos el contenido de mensajeInput en mensajeDesdeElPadre.
+Al ejecutar el método, copiamos el contenido de `mensajeInput` en `mensajeDesdeElPadre`.
 
-Paso 4 — Crear el botón
+---
+
+## Paso 4 — Crear el botón
+
+```html
 <button type="button" (click)="enviarMensaje()">
   Enviar mensaje desde el padre
 </button>
+```
 
-Al hacer click se ejecuta enviarMensaje().
+Al hacer click se ejecuta `enviarMensaje()`.
 
-Paso 5 — Pasar el mensaje al componente hijo
+---
+
+## Paso 5 — Pasar el mensaje al componente hijo
 
 En el HTML del padre:
 
+```html
 <app-hijo [recibirMensaje]="mensajeDesdeElPadre"></app-hijo>
-[recibirMensaje] → nombre del @Input() del hijo.
-mensajeDesdeElPadre → variable del padre que contiene el dato.
-Paso 6 — Crear el @Input() en el hijo
+```
 
-En el .ts del hijo:
+* `[recibirMensaje]` → nombre del `@Input()` del hijo.
+* `mensajeDesdeElPadre` → variable del padre que contiene el dato.
 
+---
+
+## Paso 6 — Crear el `@Input()` en el hijo
+
+En el `.ts` del hijo:
+
+```ts
 import { Input } from '@angular/core';
 
 @Input() recibirMensaje?: string;
+```
 
 El hijo ahora puede recibir el valor enviado por el padre.
 
-Paso 7 — Mostrar el mensaje en el hijo
+---
+
+## Paso 7 — Mostrar el mensaje en el hijo
 
 En el HTML del hijo:
 
+```html
 <h2>Recibiendo mensaje del padre</h2>
 
 <p>{{ recibirMensaje }}</p>
+```
 
-{{ recibirMensaje }} utiliza interpolación para mostrar el dato recibido.
+`{{ recibirMensaje }}` utiliza **interpolación** para mostrar el dato recibido.
 
- 
+---
 
 
+### Resumen
+
+**Padre → Hijo = `@Input()`**
+
+**Hijo → Padre = `@Output()` + `EventEmitter`**
