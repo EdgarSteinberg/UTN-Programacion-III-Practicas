@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-messages',
@@ -9,5 +9,14 @@ import { Component, Input } from '@angular/core';
 export class MessagesComponent {
 
   // Este es el mensaje que recibe desde el padre(contador)
-  @Input() recibeMessage?: string ;
+  @Input() recibeMessage?: string;
+
+  // Comunicacion entre hijo al padre
+  @Output() mensajeDesdeMessages = new EventEmitter<string>();
+
+  mensaje = '';
+
+  enviarMensaje() {
+    this.mensajeDesdeMessages.emit(this.mensaje);
+  }
 }

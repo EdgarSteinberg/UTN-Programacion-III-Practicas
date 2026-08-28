@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,9 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { ContadorComponent } from './contador/contador.component';
 import { MessagesComponent } from './messages/messages.component';
 
+
 @NgModule({
   declarations: [AppComponent, LoginComponent, ContadorComponent, MessagesComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

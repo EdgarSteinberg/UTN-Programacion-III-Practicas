@@ -10,5 +10,12 @@
     <button (click)="decrementar()">Decrementar</button>
 
 
-    <app-messages [recibeMessage]="mensajeDesdeContador"></app-messages>
+    <app-messages [recibeMessage]="mensajeDesdeContador">
+    </app-messages>
+
+    <app-messages (mensajeDesdeMessages)="recibirMensaje($event)">
+    </app-messages>
+
+    <h2>El mensaje recibido desde el hijo es: </h2>
+    <p>{{mensajeRecibido}}</p>
 </div>
