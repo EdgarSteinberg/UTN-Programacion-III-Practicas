@@ -3,9 +3,12 @@
 <div>
     <!-- 1. {{ valorContador }} → Interpolation binding -->
     <p>Contador: {{ valorContador }}</p>
-    
+
 
     <!-- 2. (click)="incrementar()" → Event binding -->
     <button (click)="incrementar()">Incrementar</button>
     <button (click)="decrementar()">Decrementar</button>
+
+
+    <app-messages [recibeMessage]="mensajeDesdeContador"></app-messages>
 </div>

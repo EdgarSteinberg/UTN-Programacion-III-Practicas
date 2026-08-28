@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ContadorComponent {
   valorContador: number = 0;
+  mensajeDesdeContador = 'Mesansaje desde el contador(padre) props?'
 
   incrementar() {
     this.valorContador++;
