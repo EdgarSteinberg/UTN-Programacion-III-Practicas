@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+    color: blue;
+}
+
+.mensaje{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mensajeLabel{
+    font-size: 30px;
+    font-weight: bolder;
+    color: rgba(8, 179, 231, 0.629);
+}

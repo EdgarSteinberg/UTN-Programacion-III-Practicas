@@ -2,120 +2,94 @@
 
 Repositorio personal para almacenar y documentar las prácticas, ejercicios y proyectos realizados durante la materia **Programación 3** de la UTN.
 
-El objetivo es utilizar este repositorio no solo para guardar el código, sino también para **practicar los conceptos vistos en clase, reconstruir los ejemplos desde cero y registrar mi progreso durante la materia**.
+# Repositorio de prácticas — Angular
 
-## 🚀 Tecnologías y herramientas
+Repositorio destinado a almacenar y documentar las prácticas realizadas durante el aprendizaje de Angular.
 
-A lo largo de la materia se trabajan diferentes tecnologías y herramientas relacionadas con el desarrollo web y backend:
-
-* HTML
-* CSS
-* JavaScript
-* TypeScript
-* Angular
-* Node.js
-* NestJS
-* SQL y bases de datos
-* Docker
-* n8n
-* Integración con servicios de Inteligencia Artificial
-
-## 📂 Organización
-
-Las prácticas se organizan por clases y temas para facilitar la navegación y el repaso posterior.
-
-```text
-clases-proyecto/
-│
-├── README.md
-│
-├── programacion_III_UTN/
-│   └── Material y proyecto base proporcionado por los profesores
-│
-├── clase-02-maquetado/
-│   ├── login.html
-│   └── ...
-│
-├── clase-03-...
-│
-└── ...
-```
-
-> La estructura se irá modificando a medida que avance la cursada.
-
-## 🧠 Forma de trabajo
-
-Además de seguir las clases, las prácticas se desarrollan intentando **reconstruir los ejemplos desde cero**, en lugar de limitarse a copiar y pegar el código terminado.
-
-Cada etapa importante puede quedar registrada mediante commits para poder observar la evolución del proyecto.
-
-Por ejemplo:
-
-```text
-feat: crear estructura inicial del login
-feat: agregar formulario
-feat: agregar estilos
-feat: mejorar layout
-```
-
-De esta manera, Git funciona también como una forma de **registrar el proceso de aprendizaje**.
-
-## 🎯 Objetivos
-
-* Reforzar conceptos de desarrollo web.
-* Practicar HTML, CSS y JavaScript.
-* Incorporar TypeScript.
-* Aprender y practicar Angular.
-* Trabajar con Node.js y NestJS.
-* Practicar bases de datos y SQL.
-* Incorporar Docker al flujo de desarrollo.
-* Explorar automatización e integración mediante n8n.
-* Comprender cómo se conectan frontend, backend, bases de datos y servicios externos.
-* Construir progresivamente un proyecto integrador.
-
-## 🤖 Proyecto integrador
-
-Durante la materia se trabajará progresivamente en un proyecto que integra varias de las tecnologías vistas.
-
-La idea es comprender cómo se relacionan las diferentes partes de una aplicación:
-
-```text
-Frontend
-   ↓
-Angular / TypeScript
-   ↓
-Backend
-   ↓
-NestJS / Node.js
-   ↓
-Base de datos
-   ↓
-SQL
-   ↓
-Docker / Servicios externos
-   ↓
-n8n / Integraciones / IA
-```
-
-## 📈 Progreso
-
-Este repositorio se irá actualizando durante la cursada con nuevas clases, prácticas y proyectos.
-
-El objetivo final no es solamente tener el código terminado, sino poder **entender cómo se construyó cada parte y conservar un registro del aprendizaje**.
-
-
-
-## Instalación y creación de un proyecto Angular
-
-### 1. Instalar Angular CLI
-
-Instalar Angular CLI de forma global:
+## Crear un proyecto Angular
 
 ```bash
-npm install -g @angular/cli
-
-2. Crear un nuevo proyecto
-
-Crear un nuevo proyecto Angular:
-
 ng new nombre-del-proyecto
+```
+
+## Crear un componente
+
+```bash
+ng g c nombre-del-componente --skip-tests
+```
+
+Ejemplo:
+
+```bash
+ng g c login --skip-tests
+```
+
+---
+
+# Comunicación entre componentes
+
+## Hijo → Padre con `@Output()`
+
+### Paso 1 — Crear el `@Output()` en el hijo
+
+```ts
+@Output() mensajeDesdeHijo = new EventEmitter<string>();
+```
+
+### Paso 2 — Crear la variable
+
+```ts
+mensaje = '';
+```
+
+### Paso 3 — Crear el método para enviar el dato
+
+```ts
+enviarMensaje() {
+  this.mensajeDesdeHijo.emit(this.mensaje);
+}
+```
+
+### Paso 4 — Vincular el input con la variable
+
+```html
+<input type="text" id="message" [(ngModel)]="mensaje">
+
+<button type="button" (click)="enviarMensaje()">
+  Enviar mensaje desde el hijo
+</button>
+```
+
+### Paso 5 — Crear en el padre una variable para almacenar el dato
+
+```ts
+mensajeRecibido = '';
+```
+
+### Paso 6 — Crear el método para recibir y guardar el dato
+
+```ts
+recibirMensaje(mensaje: string) {
+  this.mensajeRecibido = mensaje;
+}
+```
+
+### Paso 7 — Llamar al componente hijo y escuchar el `@Output()`
+
+```html
+<app-hijo
+  (mensajeDesdeHijo)="recibirMensaje($event)">
+</app-hijo>
+```
+
+* `(mensajeDesdeHijo)` → nombre del `@Output()` del hijo.
+* `recibirMensaje()` → método del padre.
+* `$event` → dato enviado por el hijo.
+
+### Paso 8 — Mostrar el dato recibido
+
+```html
+<p>Mensaje recibido: {{ mensajeRecibido }}</p>
+```
+
+

@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ContadorComponent } from './contador/contador.component';
 import { MessagesComponent } from './messages/messages.component';
+import { PadreComponent } from './padre/padre.component';
+import { HijoComponent } from './hijo/hijo.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ContadorComponent, MessagesComponent],
+  declarations: [AppComponent, LoginComponent, ContadorComponent, MessagesComponent, PadreComponent, HijoComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
