@@ -12,4 +12,11 @@ export class PadreComponent {
   recibirMensaje(mensaje: string) {
     this.mensajeRecibido = mensaje;
   }
+
+  mensajeInput = '';        // Lo que estás escribiendo
+  mensajeDesdeElpadre = ''; // Lo que efectivamente enviás al hijo
+
+  enviarMensaje() {
+    this.mensajeDesdeElpadre = this.mensajeInput;
+  }
 }
