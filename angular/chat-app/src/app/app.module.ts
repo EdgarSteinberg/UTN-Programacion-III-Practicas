@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { PadreComponent } from './padre/padre.component';
 import { HijoComponent } from './hijo/hijo.component';
 import { HermanoComponent } from './hermano/hermano.component';
+import { EstiloHermanosDirective } from './estilo-hermanos.directive';
 
 
 @NgModule({
-  declarations: [AppComponent, PadreComponent, HijoComponent, HermanoComponent],
+  declarations: [AppComponent, PadreComponent, HijoComponent, HermanoComponent, EstiloHermanosDirective],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
