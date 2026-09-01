@@ -1,14 +1,19 @@
-<h1>Componente Padre</h1>
-<p class="mensajeRecibido">Mensaje recibido: <strong>{{ mensajeRecibido }}</strong></p>
-<app-hijo (mensajeDesdeElHijo)="recibirMensaje($event)"></app-hijo>
+<h1>{{nombre}}</h1>
+<button type="button" (click)="saludar()">Saludar</button>
+<button type="button" (click)="preguntar()">preguntar Por Hijo</button>
 
 
-<h2>Mensaje desde el padre</h2>
 
-<input type="text" [(ngModel)]="mensajeInput">
+<!-- <app-hijo 
+(incrementarDesdeHijo)="incrementar()"
+(decrementarDesdeHijo)="decrementar()"
+(mensajeDesdeHijo)="recibirMensaje($event)"
+/>
 
-<button type="button" (click)="enviarMensaje()">
-  Enviar mensaje desde el padre
-</button>
+<h1>El mensaje recibo desde el hijo es: </h1>
+<p>{{mensajeRecibido}}</p>
 
-<app-hijo [recibirMensajes]="mensajeDesdeElpadre"></app-hijo>
+
+<h2>Contador</h2>
+<p>{{valorContador}}</p>
+ -->

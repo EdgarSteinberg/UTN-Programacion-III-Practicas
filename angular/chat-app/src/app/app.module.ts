@@ -4,15 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { ContadorComponent } from './contador/contador.component';
-import { MessagesComponent } from './messages/messages.component';
+
 import { PadreComponent } from './padre/padre.component';
 import { HijoComponent } from './hijo/hijo.component';
+import { HermanoComponent } from './hermano/hermano.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ContadorComponent, MessagesComponent, PadreComponent, HijoComponent],
+  declarations: [AppComponent, PadreComponent, HijoComponent, HermanoComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]

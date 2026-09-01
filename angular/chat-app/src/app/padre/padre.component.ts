@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ServicioFamiliarService } from '../servicio-familiar.service';
 
 @Component({
   selector: 'app-padre',
@@ -6,17 +7,41 @@ import { Component } from '@angular/core';
   templateUrl: './padre.component.html',
   styleUrl: './padre.component.css'
 })
-export class PadreComponent {
-  mensajeRecibido = '';
+export class PadreComponent implements OnInit {
 
-  recibirMensaje(mensaje: string) {
-    this.mensajeRecibido = mensaje;
+  nombre?: string;
+
+  constructor(private _servicioFamiliar: ServicioFamiliarService) { }
+
+  //Servicio
+  ngOnInit(): void {
+    this._servicioFamiliar.setHermanoGrande('Juanchi');
+    this.nombre = this._servicioFamiliar.getHermanoGrande();
   }
 
-  mensajeInput = '';        // Lo que estás escribiendo
-  mensajeDesdeElpadre = ''; // Lo que efectivamente enviás al hijo
-
-  enviarMensaje() {
-    this.mensajeDesdeElpadre = this.mensajeInput;
+  saludar() {
+    this._servicioFamiliar.saludar(this._servicioFamiliar.getHermanoPequeno() || '');
   }
+
+  preguntar() {
+    console.log(this._servicioFamiliar.preguntarPorHijo());
+  }
+
+  /*   mensajeRecibido = '';
+  
+    recibirMensaje($event: string) {
+      this.mensajeRecibido = $event;
+    }
+  
+    //CONTADOR
+  
+    valorContador: number = 0;
+  
+    incrementar() {
+      this.valorContador++;
+    }
+  
+    decrementar() {
+      this.valorContador--;
+    } */
 }

@@ -1,11 +1,12 @@
-<h1>Componente Hijo</h1>
-
-<div class="mensaje">
-    <label for="message" class="mensajeLabel">Mensaje del hijo</label>
-    <input type="text" id="message" [(ngModel)]="mensaje">
-    <button type="button" (click)="enviarMensaje()">Enviar mensaje desde el hijo</button>
+<div>
+    <label for="entrada">Escrbi un mensaje para el padre:</label>
+    <input type="text" id="entrada" [(ngModel)]="mensaje">
+    <button type="button" (click)="enviarMensaje()">Enviar Mensaje</button>
 </div>
-
-
-<h2>Recibiendo mensaje del padre</h2>
-<p>{{ recibirMensajes }}</p>
+<br>
+<br>
+<br>
+<div>
+    <button (click)="incrementar()">Incrementar</button>
+    <button (click)="decrementar()">Decrementar</button>
+</div>
