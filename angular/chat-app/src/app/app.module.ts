@@ -10,10 +10,14 @@ import { HijoComponent } from './hijo/hijo.component';
 import { HermanoComponent } from './hermano/hermano.component';
 import { EstiloHermanosDirective } from './estilo-hermanos.directive';
 import { MiPipePersonalizadoPipe } from './mi-pipe-personalizado.pipe';
+import { HomeComponent } from './home/home.component';
+import { ProductsComponent } from './products/products.component';
+import { ContactComponent } from './contact/contact.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 @NgModule({
-  declarations: [AppComponent, PadreComponent, HijoComponent, HermanoComponent, EstiloHermanosDirective, MiPipePersonalizadoPipe],
+  declarations: [AppComponent, PadreComponent, HijoComponent, HermanoComponent, EstiloHermanosDirective, MiPipePersonalizadoPipe, HomeComponent, ProductsComponent, ContactComponent, ProductDetailComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
