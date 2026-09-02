@@ -8,9 +8,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'products/:productsId', component: ProductDetailComponent },
-  { path: 'contanct', component: ContactComponent },
-  { path: '*', redirectTo:'', pathMatch: 'full'}
+  { path: 'products/:category/:productId', component: ProductDetailComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '**', redirectTo:'', pathMatch: 'full'}
 ];
 
 @NgModule({

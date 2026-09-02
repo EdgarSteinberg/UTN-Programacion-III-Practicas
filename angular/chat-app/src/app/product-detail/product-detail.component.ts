@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -6,6 +7,18 @@ import { Component } from '@angular/core';
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent implements OnInit {
 
+  producto: string = '';
+  color: string = '';
+
+  constructor(private _route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this._route.params.subscribe(params => {
+      /* console.log(params['productId']); */
+      this.producto = params['productId'];
+      this.color = params['category'];
+    })
+  }
 }
