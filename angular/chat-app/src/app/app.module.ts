@@ -18,7 +18,12 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 
 @NgModule({
   declarations: [AppComponent, PadreComponent, HijoComponent, HermanoComponent, EstiloHermanosDirective, MiPipePersonalizadoPipe, HomeComponent, ProductsComponent, ContactComponent, ProductDetailComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule, // formularios de tipo plantilla
+    ReactiveFormsModule // formularios de tipo reactivo
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
