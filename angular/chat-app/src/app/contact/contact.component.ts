@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
 
   formularioContacto: FormGroup;
   tipoDni: string = 'DNI';
@@ -24,18 +24,30 @@ export class ContactComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       apellido: ['',],
       tipoDni: ['',],
-      dni: ['',],
       email: ['', [Validators.required, Validators.email]]
     })
   }
 
   ngOnInit(): void {
-    this.formularioContacto.get('tipoDni')?.valueChanges.subscribe(value =>{
+    this.formularioContacto.get('nombre')?.setValue('Juan');
+    this.formularioContacto.get('nombre')?.disable();
+
+    this.formularioContacto.get('tipoDni')?.valueChanges.subscribe(value => {
       this.tipoDni = value;
-    }) 
+    })
   }
 
+  ngOnDestroy(): void {
+    console.log('se destruyo el componente')
+  }
 
+   hasErrors(controlName: string, errorType: string) {
+    return this.formularioContacto.get(controlName)?.hasError(errorType) && this.formularioContacto.get(controlName)?.touched;
+  }
+
+  enviar() {
+    console.log(this.formularioContacto)
+  }
   /*   
       ngOnInit(): void {
       this.formularioContacto.get('nombre')?.setValue(this.usuarioActivo); 
@@ -53,13 +65,6 @@ export class ContactComponent implements OnInit {
     } */
 
 
-  hasErrors(controlName: string, errorType: string) {
-    return this.formularioContacto.get(controlName)?.hasError(errorType) && this.formularioContacto.get(controlName)?.touched;
-  }
-
-  enviar() {
-    console.log(this.formularioContacto)
-  }
 
   /*  
    formulario plantilla
