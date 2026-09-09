@@ -11,6 +11,7 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   formularioContacto: FormGroup;
   tipoDni: string = 'DNI';
+  mostrarDNI : boolean = false;
 
   /* usuarioActivo : string = 'Pedro'; */
   /*   usuarioActivo: any = ({
@@ -33,6 +34,7 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.formularioContacto.get('nombre')?.disable();
 
     this.formularioContacto.get('tipoDni')?.valueChanges.subscribe(value => {
+      this.mostrarDNI = value != '';
       this.tipoDni = value;
     })
   }
