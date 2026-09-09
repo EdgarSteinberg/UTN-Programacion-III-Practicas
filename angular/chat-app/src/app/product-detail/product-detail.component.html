@@ -1,9 +1,22 @@
+
+<div class="d-flex justify-content-center"> 
+<div class="card" style="width: 20rem;" *ngIf="!loading">
+    <img src="{{product?.image}}" class="card-img-top" alt="{{product?.title}}">
+    <div class="card-body">
+        <h5 class="card-title">{{product?.title}}</h5>
+        <h6 class="card-text">{{product?.price | currency}}</h6>
+        <p class="card-text">{{product?.description}}</p>
+    </div>
+</div>
+</div>
+<ng-container  *ngIf="loading"><i style="color: blue">Cargando informacion</i></ng-container>
+
+
+
 <!-- <h1 [ngStyle]="{'background-color': color}">product-detail works!</h1> -->
-<ng-container *ngIf="!loading">
+<!-- <ng-container *ngIf="!loading">
     <h1>product-detail works!</h1>
-    <p>Producto <strong>{{product?.name}}</strong></p>
+    <p>Producto <strong>{{product?.title}}</strong></p>
     <p [ngStyle]="{color: color}">Precio <strong>{{product?.price | currency}}</strong></p>
     <p *ngIf="product?.description">Descripcion <strong>{{product?.description}}</strong></p>
-</ng-container>
-
-<ng-container  *ngIf="loading"><i style="color: blue">Cargando informacion</i></ng-container>
+</ng-container> -->
